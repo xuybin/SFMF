@@ -53,4 +53,4 @@ $ cd .server && npm start
 
 ## 效果图
 
-![screenshot](https://img.alicdn.com/tfs/TB14igtaVT7gK0jSZFpXXaTkpXa-2878-1368.png)
+![screenshot](https://github.com/xuybin/serverless-for-micro-frontend-scaffold/blob/master/screenshot.png)
