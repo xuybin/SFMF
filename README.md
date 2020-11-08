@@ -27,17 +27,17 @@ $ docker build -t 镜像名:版本 .
 $ docker run --rm 镜像名:版本
 ```
 
-## 守护部署
+## 手动部署
 
 ```bash
-# 以Egg做框架,打包后的程序
+# 以Koa做框架,打包前端和后端
 $ npm run package
 
-# 以egg-scripts守护运行
-$ cd .server && npm daemon
+# 验证打包后的代码是否能运行
+$ npm run server
 
-# 停止守护程序
-$ cd .server && npm stop
+# 拷贝.server内的全部内容,手动部署即可
+$ cd .server && npm start
 ```
 
 [More docs](https://ice.work/docs/guide/advance/faas).
