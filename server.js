@@ -21,7 +21,7 @@ function R(cmd) {
   });
 }
 
-async function genServer(basePath) {
+async function genServer(basePath, port) {
   const configPath = path.resolve(`${basePath}/server.js`);
   await R(`echo abc > ${configPath}`);
   replace({
@@ -57,8 +57,8 @@ app.use(
   })
 );
 
-app.listen(3000, () => {
-  console.log('server started on http://127.0.0.1:3000');
+app.listen(${port}, () => {
+  console.log('server started on http://127.0.0.1:${port}');
 });`,
     paths: [configPath],
     recursive: true,
@@ -96,7 +96,7 @@ function editPackage(basePath) {
   await R(
     `cd ${basePath} && npm un @midwayjs/faas-middleware-static-file @midwayjs/faas-cli-plugin-midway-hooks`
   );
-  await genServer(basePath);
+  await genServer(basePath, 3000);
   await editPackage(basePath);
   await R(`cd ${basePath} && npm i koa-bodyparser koa-static-cache -S`);
   console.log('package done');
