@@ -1,0 +1,82 @@
+{
+  "name": "serverless-for-micro-frontend-scaffold",
+  "version": "0.1.0",
+  "description": "Serverless For Micro Frontend Scaffold",
+  "dependencies": {
+    "@alifd/next": "^1.21.8",
+    "@alifd/theme-design-pro": "^0.6.2",
+    "@icedesign/container": "^1.0.5",
+    "@midwayjs/faas": "^1.2.15",
+    "@midwayjs/faas-cli-plugin-midway-hooks": "^0.0.50",
+    "@midwayjs/faas-middleware-static-file": "^1.0.0",
+    "@midwayjs/hooks": "^0.0.50",
+    "classnames": "^2.2.6",
+    "moment": "^2.29.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@ice/spec": "^1.0.1",
+    "@midwayjs/build-plugin-hooks": "^0.0.50",
+    "@midwayjs/faas-cli": "^1.2.14",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "build-plugin-fusion": "^0.1.8",
+    "build-plugin-ice-faas": "^0.1.0",
+    "build-plugin-icestark": "^1.7.0",
+    "build-plugin-moment-locales": "^0.1.0",
+    "cash": "^0.8.0",
+    "cash-global": "^0.2.0",
+    "eslint": "^7.12.1",
+    "husky": "^4.3.0",
+    "ice.js": "^1.10.0",
+    "pretty-quick": "^3.1.0",
+    "replace": "^1.2.0",
+    "standard-version": "^9.0.0",
+    "stylelint": "^13.7.2"
+  },
+  "midway-integration": {
+    "tsCodeRoot": "src/apis",
+    "lifecycle": {
+      "before:package:cleanup": "npm run build"
+    }
+  },
+  "scripts": {
+    "start": "icejs start",
+    "build": "icejs build",
+    "deploy": "f deploy",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint --cache --fix ./**/*.{ts,js,tsx,jsx}",
+    "stylelint": "stylelint --fix ./**/*.scss",
+    "design": "icejs build --design",
+    "prettier": "prettier --config  --write ./src",
+    "release": "standard-version",
+    "package": "node server.js",
+    "server": "(cd .server || (node server.js && cd .server))  && npm start"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run lint"
+    }
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xuybin/serverless-for-micro-frontend-scaffold"
+  },
+  "iceworks": {
+    "type": "react",
+    "adapter": "adapter-react-v3"
+  },
+  "ideMode": {
+    "name": "ice-react"
+  },
+  "private": true,
+  "originTemplate": "xuybin/serverless-for-micro-frontend-scaffold"
+}

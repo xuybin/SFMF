@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "iceworks-team.iceworks",
+    "esbenp.prettier-vscode",
+    "vivaxy.vscode-conventional-commits",
+    "stylelint.vscode-stylelint",
+    "dbaeumer.vscode-eslint",
+    "DavidAnson.vscode-markdownlint",
+    "msjsdiag.debugger-for-chrome"
+  ]
+}
